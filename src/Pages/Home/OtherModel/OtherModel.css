@@ -1,0 +1,20 @@
+.model-body{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.bike-model{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+.blank-btn{
+    margin: 5px auto 10px;
+    background-color: orange;
+    padding: 5px 30px 5px 30px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 19px;
+}

@@ -1,0 +1,30 @@
+.nav{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.nav:hover{
+    color: red;
+}
+
+.user-btn{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.nav-options{
+    margin-left: 80%;
+}
+
+@media only screen and (max-width: 480px) {
+    .user-btn{
+        text-decoration: none;
+        color: white;
+        align-items: center;
+        margin-left: 0px;
+    }
+}

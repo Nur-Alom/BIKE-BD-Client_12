@@ -8,7 +8,7 @@ const Home = () => {
     const [bikes, setBikes] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/homeProducts')
+        fetch('https://afternoon-tundra-43187.herokuapp.com/homeProducts')
             .then(res => res.json())
             .then(data => setBikes(data))
     }, []);

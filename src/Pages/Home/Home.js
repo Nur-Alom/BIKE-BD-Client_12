@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Home.css';
 import img from '../../images/banner3.jpg';
 import Footer from '../Shared/Footer/Footer';
 import OthreModel from './OtherModel/OthreModel';
@@ -16,8 +17,8 @@ const Home = () => {
 
     return (
         <div>
-            <img style={{ width: "100%" }} src={img} alt="" />
-            <div style={{ margin: "120px" }} className="container row">
+            <img style={{ width: "100%", marginTop: "55px" }} src={img} alt="" />
+            <div className="container row homeProduct-body">
                 {
                     bikes.map(bike => <Product
                         key={bike._id}

@@ -17,14 +17,7 @@ const useFirebase = () => {
     const handleLoginEmailPassword = () => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
-        // .then((result) => {
-        //     const user = result.user;
-        //     setUsers(user)
-        // })
-        // .catch(error => {
-        //     console.log(error.message);
-        // })
-        // .finally(() => setLoading(false))
+
     }
 
     const setUserName = () => {

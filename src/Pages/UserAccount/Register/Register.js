@@ -8,14 +8,15 @@ import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
     const { googleLogin, handleName, handleEmail, setUserName, handlePassword, handleRegister } = useAuth();
 
-    // const location = useLocation();
     const history = useHistory();
     const location = useLocation();
-    const redirect = location.state?.from || '/';
+    const redirect = location.state?.from || '/login';
+    console.log(location.state?.from);
 
     const userRegister = () => {
         handleRegister().then((result) => {
             setUserName()
+            alert('Your Account Create Successfully, Please Go to Login Page and login Your Account')
             history.push(redirect)
         })
             .catch((error) => {

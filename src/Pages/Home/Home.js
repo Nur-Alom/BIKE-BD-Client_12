@@ -4,6 +4,7 @@ import img from '../../images/banner3.jpg';
 import Footer from '../Shared/Footer/Footer';
 import OthreModel from './OtherModel/OthreModel';
 import Product from './Product/Product';
+import Header from '../Shared/Header/Header';
 
 const Home = () => {
     const [bikes, setBikes] = useState([]);
@@ -13,10 +14,10 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setBikes(data))
     }, []);
-    console.log(bikes);
 
     return (
         <div>
+            <Header></Header>
             <img style={{ width: "100%", marginTop: "55px" }} src={img} alt="" />
             <div className="container row homeProduct-body">
                 {

@@ -15,13 +15,13 @@
 .data-field{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
 }
 
 .input-login{
     margin-bottom: -8px !important;
-    padding: 3px 75px;
+    padding: 3px 22px;
     border: none;
     background-color: #F2F4F4;
 }
@@ -35,13 +35,8 @@
 .login-btn{
     color: white;
     background-color: #03D6B9;
-    padding: 3px 154px;
+    padding: 3px 100px;
     border: 0px;    
-}
-
-.google-img{
-    width: 40px;
-    margin-right: 70px;
 }
 
 .google-btn{
@@ -50,12 +45,11 @@
     border: 1px solid lightgray;
     border-radius: 25px;
     margin-top: 5px;
-    padding-right: 62px;
+    padding-right: 25px;
     font-weight: bold;
 }
 .google-img{
     width: 40px;
-    margin-right: 65px;
 }
 
 

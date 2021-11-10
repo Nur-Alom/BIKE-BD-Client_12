@@ -11,7 +11,7 @@ import img8 from '../../../images/kawasaki_bikes_logo.jpg';
 
 const OthreModel = () => {
     return (
-        <div>
+        <div className="mb-5">
             <h1 className="my-3 text-warning">Choose Your Favorite Brand</h1>
             <hr />
             <div className="model-body">

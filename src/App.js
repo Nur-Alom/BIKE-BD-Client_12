@@ -6,11 +6,13 @@ import {
   Route
 } from "react-router-dom";
 import Home from './Pages/Home/Home';
-import Header from './Pages/Shared/Header/Header';
 import LoadProducts from './Pages/Home/Products/LoadProducts';
 import Login from './Pages/UserAccount/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import Register from './Pages/UserAccount/Register/Register';
+import NotFound from './Pages/NotFound/NotFound';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import PrivateRoute from './Pages/UserAccount/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -18,7 +20,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header></Header>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -35,8 +36,14 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="">
+            <PrivateRoute path="/placeOrder/:productId">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            {/* <Route path="">
 
+            </Route> */}
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

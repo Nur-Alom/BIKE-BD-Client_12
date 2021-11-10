@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import './LoadProducts.css';
 import AllProducts from './AllProducts';
+import Header from '../../Shared/Header/Header';
 
 const LoadProducts = () => {
     const [products, setProducts] = useState([]);
@@ -12,7 +14,8 @@ const LoadProducts = () => {
 
     return (
         <div>
-            <div style={{ margin: "120px" }} className="container row">
+            <Header></Header>
+            <div className="container row loadProducts-body">
                 {
                     products.map(product => <AllProducts
                         key={product._id}

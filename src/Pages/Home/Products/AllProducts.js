@@ -16,7 +16,7 @@ const AllProducts = ({ product }) => {
                     <Card.Text>{description}</Card.Text>
                     <hr />
                     <div className="my-2">
-                        <NavLink to={`/pack/${_id}`} className="detail-btn rounded-pill">Buy Now</NavLink>
+                        <NavLink to={`/placeOrder/${_id}`} className="detail-btn rounded-pill">Buy Now</NavLink>
                     </div>
                 </Card.Body>
             </Card>

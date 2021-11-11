@@ -7,7 +7,7 @@ import useAuth from '../../Hooks/useAuth';
 import Header from '../Shared/Header/Header';
 
 const PlaceOrder = () => {
-    const { users } = useAuth();
+    const { user } = useAuth();
     const { productId } = useParams();
     const [products, setProducts] = useState({});
     const location = useLocation();
@@ -57,9 +57,9 @@ const PlaceOrder = () => {
                         <input value={productId} className="register-input d-none" type="text" {...register("packKey")} required />
                         <input value={'pending'} className="register-input d-none" type="text" {...register("status")} required />
                         <br />
-                        <input value={users.displayName} className="register-input" {...register("name")} required />
+                        <input value={user.displayName} className="register-input" {...register("name")} required />
                         <br />
-                        <input value={users.email} className="register-input" {...register("email")} required />
+                        <input value={user.email} className="register-input" {...register("email")} required />
                         <br />
                         <input className="register-input" type="number" {...register("number")} placeholder="Number" maxLength="11" required />
                         <br />

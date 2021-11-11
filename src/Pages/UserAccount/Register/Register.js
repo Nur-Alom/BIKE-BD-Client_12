@@ -1,37 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
-import imgGoogle from '../../../images/imageedit_google.png'
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import { Alert, Spinner } from 'react-bootstrap';
 
 const Register = () => {
-    const { googleLogin, handleName, handleEmail, setUserName, handlePassword, handleRegister } = useAuth();
+    const { user, registerNewUser, loading, authError } = useAuth({});
 
     const history = useHistory();
-    const location = useLocation();
-    const redirect = location.state?.from || '/login';
-    console.log(location.state?.from);
+    const [loginData, setLoginData] = useState({});
 
-    const userRegister = () => {
-        handleRegister().then((result) => {
-            setUserName()
-            alert('Your Account Create Successfully, Please Go to Login Page and login Your Account')
-            history.push(redirect)
-        })
-            .catch((error) => {
-                console.log(error.message)
-            })
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
     }
 
-    const handleLogin = () => {
-        googleLogin()
-            .then((result) => {
-                history.push(redirect)
-            })
-            .catch((error) => {
-                console.log(error.message)
-            })
+    const handleLoginSubmit = () => {
+        registerNewUser(loginData.email, loginData.password, loginData.name, history);
     }
 
     return (
@@ -39,17 +28,43 @@ const Register = () => {
             <div className="form">
                 <div className="data-field">
                     <h2 className="my-4">Create an account.</h2>
-                    <input onBlur={handleName} className="input-register rounded-pill" type="name" name="name" placeholder="Your Name" required />
-                    <input onBlur={handleEmail} className="input-register rounded-pill" type="email" name="email" placeholder="Your Email" required />
-                    <input onBlur={handlePassword} className="input-register rounded-pill" type="password" name="password" placeholder="Your Password" required />
-                    <button onClick={userRegister} className="register-btn rounded-pill fw-bold" type="submit">Register</button>
+                    <input
+                        onBlur={handleOnBlur}
+                        className="input-register rounded-pill" type="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required />
+                    <input
+                        onBlur={handleOnBlur}
+                        className="input-register rounded-pill" type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required />
+                    <input
+                        onBlur={handleOnBlur}
+                        className="input-register rounded-pill" type="password"
+                        name="password"
+                        placeholder="Your Password"
+                        required />
+                    <button
+                        onClick={handleLoginSubmit} className="register-btn rounded-pill fw-bold" type="submit">Register</button>
                     <br />
-                    <p style={{ fontWeight: "bold", color: "gray", alignSelf: "center" }}>or Register With</p>
-                    <div>
-                        <button onClick={handleLogin} className="google-btn"><img className="google-img" src={imgGoogle} alt="" />Continue with Google</button>
-                    </div>
-                    <br />
-                    <p className="ms-4">Already have an account? <NavLink to="/login" style={{ color: "#03D6B9", border: "none", backgroundColor: "white", textDecoration: "none" }}>Login here.</NavLink></p>
+                    <p className="ms-4">
+                        Already have an account?
+                        <NavLink to="/login"
+                            style={{
+                                color: "#03D6B9",
+                                border: "none",
+                                backgroundColor: "white", textDecoration: "none"
+                            }}>Login here.</NavLink>
+                    </p>
+                    {loading && <Spinner animation="border" variant="info" />}
+                    {user?.email && <Alert variant={'success'}>
+                        User Create Successfully.
+                    </Alert>}
+                    {authError && <Alert variant={'danger'}>
+                        {`${authError}`}
+                    </Alert>}
                 </div>
             </div>
         </div >

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Header = () => {
-    const { users, logOut } = useAuth();
+    const { user, logout } = useAuth();
     return (
         <div>
             <Navbar bg="dark" variant="dark fixed-top" expand="lg">
@@ -18,11 +18,11 @@ const Header = () => {
                             <NavLink className="nav" to="/home">Home</NavLink>
                             <NavLink className="nav" to="/allProducts">More</NavLink>
                             <NavLink className="nav" to="/home">Dashboard</NavLink>
-                            {users.email ? <li style={{ color: "white", margin: "5px" }}>| {users.displayName}</li> : ''}
-                            {!users.email ?
+                            {user.email ? <li style={{ color: "white", margin: "5px" }}>| {user.displayName}</li> : ''}
+                            {!user.email ?
                                 <NavLink className="user-btn bg-success text-white py-1 px-3 rounded-3" to="/login"><i className="fas fa-sign-in-alt"></i> Login</NavLink>
                                 :
-                                <button onClick={logOut} className="user-btn bg-danger text-white py-1 px-3 rounded-3 border-0"><i className="fas fa-sign-out-alt"></i> Logout</button>}
+                                <button onClick={logout} className="user-btn bg-danger text-white py-1 px-3 rounded-3 border-0"><i className="fas fa-sign-out-alt"></i> Logout</button>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

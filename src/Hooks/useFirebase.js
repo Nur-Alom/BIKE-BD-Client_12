@@ -4,91 +4,129 @@ import initializeAuthentication from "../Firebase/firebase.init";
 
 initializeAuthentication();
 
-const googleProvider = new GoogleAuthProvider();
-const auth = getAuth();
-
 const useFirebase = () => {
+    const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [users, setUsers] = useState({});
+    const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
 
-    const handleLoginEmailPassword = () => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password)
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
 
-    }
 
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => {
+    // Create an User/Register User.
+    const registerNewUser = (email, password, name, history) => {
+        setLoading(true)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // save db
+                saveUserDatabase(email, name, 'POST');
+                // 
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
 
+                }).catch((error) => {
+
+                });
+                history.replace('/');
             })
             .catch((error) => {
-
-            });
-    }
-
-    const handleName = (e) => {
-        setName(e.target.value);
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const handleRegister = (e) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
-
-    }
-
-    const googleLogin = () => {
-        setLoading(true);
-        return signInWithPopup(auth, googleProvider)
-
-    };
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUsers(user)
-            }
-            else {
-                setUsers({})
-            }
-            setLoading(false);
-        });
-    }, [])
-
-    const logOut = () => {
-        setLoading(true);
-        signOut(auth)
-            .then(() => {
-                setUsers({});
-            })
-            .catch(error => {
-
+                setAuthError(error.message);
             })
             .finally(() => setLoading(false));
     };
 
+    // Login User
+    const loginUser = (email, password, location, history) => {
+        setLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setLoading(false));
+    };
+
+    // 
+    const handleGoogleLogin = (location, history) => {
+        setLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user
+                saveUserDatabase(user.email, user.displayName, 'PUT');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setLoading(false));
+    }
+
+    // User Logout/SignOut
+    const logout = () => {
+        setLoading(true);
+        signOut(auth).then(() => {
+
+        }).catch((error) => {
+
+        })
+            .finally(() => setLoading(false));
+    };
+
+    // User Observation.
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            }
+            else {
+                setUser({});
+            }
+            setLoading(false);
+        });
+        return () => unsubscribe;
+    }, [auth]);
+
+    // 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+    // Save Database.
+    const saveUserDatabase = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
     return {
-        users,
+        user,
+        admin,
         loading,
-        setUserName,
-        handleName,
-        handleEmail,
-        handlePassword,
-        handleRegister,
-        handleLoginEmailPassword,
-        googleLogin,
-        logOut
+        authError,
+        handleGoogleLogin,
+        registerNewUser,
+        loginUser,
+        logout,
+
     }
 }
 

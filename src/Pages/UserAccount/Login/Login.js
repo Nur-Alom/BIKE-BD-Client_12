@@ -67,7 +67,7 @@ const Login = () => {
                     </div>
                     <br />
                     <p
-                        className="ms-4">
+                        className="m-4">
                         Don't have any account?
                         <NavLink
                             to="/register"
@@ -76,7 +76,7 @@ const Login = () => {
                                 border: "none",
                                 backgroundColor: "white", textDecoration: "none"
                             }}>
-                            Register here.
+                            Register
                         </NavLink>
                     </p>
                     {loading && <Spinner animation="border" variant="info" />}

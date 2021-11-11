@@ -49,14 +49,14 @@ const Register = () => {
                     <button
                         onClick={handleLoginSubmit} className="register-btn rounded-pill fw-bold" type="submit">Register</button>
                     <br />
-                    <p className="ms-4">
+                    <p className="m-4">
                         Already have an account?
                         <NavLink to="/login"
                             style={{
                                 color: "#03D6B9",
                                 border: "none",
                                 backgroundColor: "white", textDecoration: "none"
-                            }}>Login here.</NavLink>
+                            }}>Login</NavLink>
                     </p>
                     {loading && <Spinner animation="border" variant="info" />}
                     {user?.email && <Alert variant={'success'}>

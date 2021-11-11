@@ -54,7 +54,7 @@ const PlaceOrder = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="input-form">
                         <h4 className="my-4">Fill This Form Please</h4>
                         <hr />
-                        <input value={productId} className="register-input d-none" type="text" {...register("packKey")} required />
+                        <input value={productId} className="register-input d-none" type="text" {...register("productKey")} required />
                         <input value={'pending'} className="register-input d-none" type="text" {...register("status")} required />
                         <br />
                         <input value={user.displayName} className="register-input" {...register("name")} required />

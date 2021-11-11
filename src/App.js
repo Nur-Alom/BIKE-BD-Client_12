@@ -13,6 +13,7 @@ import Register from './Pages/UserAccount/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/UserAccount/PrivateRoute/PrivateRoute';
+import DashBoard from './Pages/Dashboard/DashBoard';
 
 
 function App() {
@@ -39,9 +40,9 @@ function App() {
             <PrivateRoute path="/placeOrder/:productId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            <Route path="/dashboard">
-
-            </Route>
+            <PrivateRoute path="/dashboard">
+              <DashBoard></DashBoard>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

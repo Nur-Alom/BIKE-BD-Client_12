@@ -24,7 +24,7 @@ const useFirebase = () => {
                 setUser(newUser);
                 // save db
                 saveUserDatabase(email, name, 'POST');
-                // 
+                // Set name
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -40,7 +40,7 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     };
 
-    // Login User
+    // Login User.
     const loginUser = (email, password, location, history) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
@@ -55,7 +55,7 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     };
 
-    // 
+    // Google Login.
     const handleGoogleLogin = (location, history) => {
         setLoading(true);
         signInWithPopup(auth, googleProvider)
@@ -97,12 +97,12 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [auth]);
 
-    // 
+    // Check Admin.
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
-    }, [user.email])
+    }, [user.email]);
 
     // Save Database.
     const saveUserDatabase = (email, displayName, method) => {

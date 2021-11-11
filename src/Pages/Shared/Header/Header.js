@@ -17,7 +17,7 @@ const Header = () => {
                         <Nav className="ms-auto nav-options">
                             <NavLink className="nav" to="/home">Home</NavLink>
                             <NavLink className="nav" to="/allProducts">More</NavLink>
-                            <NavLink className="nav" to="/home">Dashboard</NavLink>
+                            <NavLink className="nav" to="/dashboard">Dashboard</NavLink>
                             {user.email ? <li style={{ color: "white", margin: "5px" }}>| {user.displayName}</li> : ''}
                             {!user.email ?
                                 <NavLink className="user-btn bg-success text-white py-1 px-3 rounded-3" to="/login"><i className="fas fa-sign-in-alt"></i> Login</NavLink>

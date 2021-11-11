@@ -17,7 +17,7 @@ const PlaceOrder = () => {
 
     // Load Single Data.
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://afternoon-tundra-43187.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [productId]);
@@ -25,7 +25,7 @@ const PlaceOrder = () => {
     // React Hook Form for sent data ui to database.
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/ordersItem', data)
+        axios.post('https://afternoon-tundra-43187.herokuapp.com/ordersItem', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Congratulation!! Your Order Place Successfully')

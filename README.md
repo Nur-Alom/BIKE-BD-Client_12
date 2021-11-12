@@ -1,4 +1,4 @@
-# Bikes-BD Online LTD, Server.
+# Bikes-BD Online LTD.
 
 This project was Also Live in https://assignment-12-ef5fb.web.app/
 
@@ -8,4 +8,4 @@ This project was Also Live in https://assignment-12-ef5fb.web.app/
 * Best EMI Option.
 * customer satisfied product and services.
 * Free Home Delivery Option.
-* 24/7 Customer Services.
+* 24/7 Customer Service

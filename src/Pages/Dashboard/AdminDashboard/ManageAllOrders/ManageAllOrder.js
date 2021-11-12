@@ -7,7 +7,7 @@ const ManageAllOrder = (props) => {
         const Status = 'Approved';
         const updateStatus = { status: Status };
         if (Status) {
-            const url = `http://https://afternoon-tundra-43187.herokuapp.com/ordersItem/${id}`
+            const url = `https://afternoon-tundra-43187.herokuapp.com/ordersItem/${id}`
             fetch(url, {
                 method: "PUT",
                 headers: {
@@ -29,7 +29,7 @@ const ManageAllOrder = (props) => {
     const handleDelete = (id) => {
         const process = window.confirm('Are you sure, you wants to Delete this item');
         if (process) {
-            const url = `http://https://afternoon-tundra-43187.herokuapp.com/ordersItem/${id}`
+            const url = `https://afternoon-tundra-43187.herokuapp.com/ordersItem/${id}`
             fetch(url, {
                 method: "DELETE",
             })

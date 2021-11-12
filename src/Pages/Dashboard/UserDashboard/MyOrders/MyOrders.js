@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://https://afternoon-tundra-43187.herokuapp.com/ordersItem`)
+        fetch(`https://afternoon-tundra-43187.herokuapp.com/ordersItem`)
             .then(res => res.json())
             .then(data => {
                 const result = data?.filter(dt => dt.email === user.email);

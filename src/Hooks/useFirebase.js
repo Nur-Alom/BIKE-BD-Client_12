@@ -99,7 +99,7 @@ const useFirebase = () => {
 
     // Check Admin.
     useEffect(() => {
-        fetch(`http://https://afternoon-tundra-43187.herokuapp.com/users/${user.email}`)
+        fetch(`https://afternoon-tundra-43187.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email]);
@@ -107,7 +107,7 @@ const useFirebase = () => {
     // Save Database.
     const saveUserDatabase = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://https://afternoon-tundra-43187.herokuapp.com/users', {
+        fetch('https://afternoon-tundra-43187.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

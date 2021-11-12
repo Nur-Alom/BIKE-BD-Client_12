@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleAdminSubmit = (e) => {
         const user = { email }
-        fetch('http://https://afternoon-tundra-43187.herokuapp.com/users/admin', {
+        fetch('https://afternoon-tundra-43187.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

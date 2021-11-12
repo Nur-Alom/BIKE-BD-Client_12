@@ -1,0 +1,82 @@
+.contact-form{
+    background-color: #fff;
+}
+
+.ct-title{
+    color: #0e1133;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ct-text{
+    color: #53545b  ;
+    text-align: center;
+}
+input{
+    margin-bottom: 20px;
+}
+textarea{
+    color: #53545b;
+    background-color: #f3f4f8;
+    border: 1px solid gray;
+}
+.input-subject{
+    margin-left: 20px;
+    background-color: #f3f4f8;
+    width: 25%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 12px;
+}
+.input-email{
+    margin-left: 20px;
+    background-color: #f3f4f8;
+    width: 25%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 12px;
+}
+.input-name{
+    background-color: #f3f4f8;
+    width: 25%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+@media only screen and (max-width: 440px) {
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    textarea{
+        height: 182px;
+        width: 295px;
+    }
+    .input-name{
+        background-color: #f3f4f8;
+        width: 90%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 12px;
+    }
+    .input-email{
+        margin-left: 0px;
+        background-color: #f3f4f8;
+        width: 90%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 12px;
+    }
+    .input-subject{
+        margin-left: 0px;
+        background-color: #f3f4f8;
+        width: 90%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 12px;
+    }
+}

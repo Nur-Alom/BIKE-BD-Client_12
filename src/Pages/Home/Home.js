@@ -5,6 +5,7 @@ import Footer from '../Shared/Footer/Footer';
 import OthreModel from './OtherModel/OthreModel';
 import Product from './Product/Product';
 import Header from '../Shared/Header/Header';
+import UserReview from './UserReview/UserReview';
 
 const Home = () => {
     const [bikes, setBikes] = useState([]);
@@ -29,6 +30,9 @@ const Home = () => {
             </div>
             <div className="container">
                 <OthreModel></OthreModel>
+            </div>
+            <div className="container mb-5">
+                <UserReview></UserReview>
             </div>
             <Footer></Footer>
         </div>

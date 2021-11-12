@@ -14,6 +14,7 @@ import ManageAllOrders from './AdminDashboard/ManageAllOrders/ManageAllOrders';
 import AddProduct from './AdminDashboard/AddAProduct/AddProduct';
 import MakeAdmin from './AdminDashboard/MakeAdmin/MakeAdmin';
 import ManageProducts from './AdminDashboard/ManageProducts/ManageProducts';
+import DashBoardHome from './DashBoardHome';
 
 const DashBoard = () => {
     const { logout, admin } = useAuth();
@@ -25,7 +26,9 @@ const DashBoard = () => {
                     <NavLink to={`/`}>Home</NavLink>
                     {admin ?
                         <div>
-                            <NavLink to={`${url}/manageAllOrders`}>Manage All Orders</NavLink>
+                            <NavLink to={`${url}`}>Dashboard</NavLink>
+                            <br />
+                            <NavLink to={`${url}/manageAllOrders`}>Manage Orders</NavLink>
                             <br />
                             <NavLink to={`${url}/addProduct`}>Add A Product</NavLink>
                             <br />
@@ -35,7 +38,9 @@ const DashBoard = () => {
                         </div>
                         :
                         <div>
-                            <NavLink to={`${url}`}>My Orders</NavLink>
+                            <NavLink to={`${url}`}>Dashboard</NavLink>
+                            <br />
+                            <NavLink to={`${url}/myOrder`}>My Orders</NavLink>
                             <br />
                             <NavLink to={`${url}/payment`}>Payment</NavLink>
                             <br />
@@ -43,11 +48,18 @@ const DashBoard = () => {
                         </div>
                     }
                     <br />
-                    <button onClick={logout}>Logout</button>
+                    <button
+                        onClick={logout}
+                        style={{ margin: "0px" }}
+                        className="user-btn bg-danger text-white py-1 px-3 rounded-3 border-0"><i className="fas fa-sign-out-alt"></i>Logout
+                    </button>
                 </div>
                 <div className="col-md-10 nested-component">
                     <Switch>
                         <Route exact path={path}>
+                            <DashBoardHome></DashBoardHome>
+                        </Route>
+                        <Route path={`${path}/myOrder`}>
                             <MyOrders></MyOrders>
                         </Route>
                         <Route path={`${path}/payment`}>

@@ -4,7 +4,7 @@ const ManageAllOrder = (props) => {
 
     // Update status Function.
     const handleStatus = (id) => {
-        const Status = 'Approved';
+        const Status = 'Shipped';
         const updateStatus = { status: Status };
         if (Status) {
             const url = `https://afternoon-tundra-43187.herokuapp.com/ordersItem/${id}`

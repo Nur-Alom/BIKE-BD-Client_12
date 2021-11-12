@@ -1,0 +1,55 @@
+/* .newService-body{
+    margin-top: 8%;
+} */
+
+.site-branding{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newService-input-section{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.newService-field{
+    border-radius: 25px;
+    background: #F4F7FC;
+ }
+
+.newService-input{
+    width: 80%;
+    padding: 10px 5px 9px 5px;
+    border: 1px solid lightgray;
+    margin: 30px 35px 22px 35px;
+    border-radius: 8px;
+}
+
+.newService-submit{
+    background-color: green;
+    color: white;
+    padding: 10px 40px;
+    margin: 20px 0px 20px 81%;
+    border: none;
+    border-radius: 27px;
+}
+
+@media only screen and (max-width:480px) {
+    .newService-body{
+        margin-top: 15%;
+        margin-bottom: 10%;
+    }
+    .hr{
+        width: 60%!important;
+        margin-left: 20%!important;
+    }
+    .newService-submit{
+        background-color: green;
+        color: white;
+        padding: 10px 40px;
+        margin: 20px 0px 20px 0px;
+        border: none;
+        border-radius: 27px;
+    }
+}

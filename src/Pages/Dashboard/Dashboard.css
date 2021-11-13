@@ -8,9 +8,21 @@
     padding: 0px;
 }
 
+.dashboardHome-img{
+    margin: -50px;
+}
+
 @media only screen and (max-width:480px) {
     .nested-component{
         margin-top: 60px;
         padding: 0px;
-    }    
+    }
+    .nested-routing{
+        border-right:none;
+        padding: 0px;
+    }
+    .dashboardHome-img{
+        margin: -50px;
+        width: 375px;
+    }
 }

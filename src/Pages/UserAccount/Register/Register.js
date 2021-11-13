@@ -56,7 +56,7 @@ const Register = () => {
                                 color: "#03D6B9",
                                 border: "none",
                                 backgroundColor: "white", textDecoration: "none"
-                            }}>Login</NavLink>
+                            }}> Login</NavLink>
                     </p>
                     {loading && <Spinner animation="border" variant="info" />}
                     {user?.email && <Alert variant={'success'}>

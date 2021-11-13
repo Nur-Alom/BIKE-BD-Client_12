@@ -75,8 +75,7 @@ const Login = () => {
                                 color: "#03D6B9",
                                 border: "none",
                                 backgroundColor: "white", textDecoration: "none"
-                            }}>
-                            Register
+                            }}> Register
                         </NavLink>
                     </p>
                     {loading && <Spinner animation="border" variant="info" />}

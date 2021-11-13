@@ -23,31 +23,31 @@ const DashBoard = () => {
         <div>
             <div className="row d-flex nested-body">
                 <div className="col-md-2 nested-routing">
-                    <NavLink to={`/`}>Home</NavLink>
+                    <NavLink className="nested-btn" to={`/`}>Home <i class="fas fa-home nested-icon"></i></NavLink>
                     {admin ?
                         <div>
-                            <NavLink to={`${url}`}>Dashboard</NavLink>
+                            <NavLink className="nested-btn" to={`${url}`}>Dashboard <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/manageAllOrders`}>Manage Orders</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/manageAllOrders`}>Manage Orders <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/addProduct`}>Add A Product</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/addProduct`}>Add A Product <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/makeAdmin`}>Make Admin <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/manageProduct`}>Manage Products</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/manageProduct`}>Manage Products <i class="fas fa-angle-right nested-icon"></i></NavLink>
                         </div>
                         :
                         <div>
-                            <NavLink to={`${url}`}>Dashboard</NavLink>
+                            <NavLink className="nested-btn" to={`${url}`}>Dashboard <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/myOrder`}>My Orders</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/myOrder`}>My Orders <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/payment`}>Payment</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/payment`}>Payment <i class="fas fa-angle-right nested-icon"></i></NavLink>
                             <br />
-                            <NavLink to={`${url}/review`}>Review</NavLink>
+                            <NavLink className="nested-btn" to={`${url}/review`}>Review <i class="fas fa-angle-right nested-icon"></i></NavLink>
                         </div>
                     }
-                    <br />
+                    <hr />
                     <button
                         onClick={logout}
                         style={{ margin: "0px" }}

@@ -12,6 +12,15 @@
     margin: -50px;
 }
 
+.nested-btn{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.nested-btn:hover{
+    color: green;
+}
+
 @media only screen and (max-width:480px) {
     .nested-component{
         margin-top: 60px;
